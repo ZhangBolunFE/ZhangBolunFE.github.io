@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.jasonchamberlain.com/"/>
-  <updated>2016-10-17T14:17:12.979Z</updated>
+  <updated>2016-10-17T14:18:50.100Z</updated>
   <id>http://www.jasonchamberlain.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://www.jasonchamberlain.com/2016/10/17/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0/"/>
     <id>http://www.jasonchamberlain.com/2016/10/17/JavaScript-模块化入门Ⅰ/</id>
     <published>2016-10-17T13:40:01.000Z</published>
-    <updated>2016-10-17T14:17:12.979Z</updated>
+    <updated>2016-10-17T14:18:50.100Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
-<p><a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq" target="_blank" rel="external">原文链接</a> </p>
+<p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq" target="_blank" rel="external">https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq</a> </p>
 </blockquote>
 <p><strong>声明：转载请注明出处。</strong></p>
 <p>作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;模块化载入” “Webpack&amp;Browserify” 或者 “AMD&amp;CMD”之类的术语，肯定瞬间就凌乱了。</p>
@@ -357,7 +357,7 @@ console.log(counter.counter); // 2
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq&quot; target=&quot;_blank&quot; rel=
+&lt;p&gt;原文链接:&lt;a href=&quot;https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq&quot; target=&quot;_blank&quot;
     
     </summary>
     
