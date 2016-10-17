@@ -22,7 +22,7 @@ JavaScript的模块化听起来挺深奥，可其实理解它对开发者来说�
 作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;amp;模块化载入” “Webpack&amp;amp;Browserify” 或者 “AMD&amp;amp;CMD”之类的术语，肯定瞬间就凌乱了。
 JavaScript的模块化听起来挺深奥，可其实理解它对开发者来说特别实用。
 在这篇文章里，我会尽量深入浅出地把这些深奥的术语翻译成浅显易懂的人话（加上一些代码示例）。希">
-<meta property="og:updated_time" content="2016-10-17T14:14:41.977Z">
+<meta property="og:updated_time" content="2016-10-17T14:17:12.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 模块化入门Ⅰ">
 <meta name="twitter:description" content="原文链接 
@@ -378,8 +378,7 @@ myGradesCalculate.average(); // &apos;Your average grade is 70.33333333333333.&a
 <p>难道就没有不通过全局作用域来实现的模块方法么？</p>
 <p>当然是有的。</p>
 <p>接下来介绍两种广受欢迎的解决方案：CommonJS 和 AMD.</p>
-<p>###CommonJS</p>
-<p>CommonJS 扩展了JavaScript声明模块的API.</p>
+<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>CommonJS 扩展了JavaScript声明模块的API.</p>
 <p>CommonJS模块可以很方便得将某个对象导出，让他们能够被其他模块通过 require 语句来引入。要是你写过 Node.js 应该很熟悉这些语法。</p>
 <p>通过CommonJS，每个JS文件独立地存储它模块的内容（就像一个被括起来的闭包一样）。在这种作用域中，我们通过 module.exports 语句来导出对象为模块，再通过 require 语句来引入。</p>
 <p>还是举个直观的例子吧：</p>
@@ -405,8 +404,7 @@ myModuleInstance.goodbye(); // &apos;goodbye!&apos;
 <p>避免全局命名空间污染<br>明确代码之间的依赖关系<br>并且这种书写方式也非常舒服友好，我自己很喜欢。</p>
 <p>需要注意的一点是，CommonJS以服务器优先的方式来同步载入模块，假使我们引入三个模块的话，他们会一个个地被载入。</p>
 <p>它在服务器端用起来很爽，可是在浏览器里就不会那么高效了。毕竟读取网络的文件要比本地耗费更多时间。只要它还在读取模块，浏览器载入的页面就会一直卡着不动。（在下一篇第二部分的教程里我们会讨论如何解决这个问题） </p>
-<p>###AMD</p>
-<p>CommonJS已经挺不错了，但假使我们想要实现异步加载模块该怎么办？答案就是Asynchronous Module Definition（异步模块定义规范），简称AMD.</p>
+<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>CommonJS已经挺不错了，但假使我们想要实现异步加载模块该怎么办？答案就是Asynchronous Module Definition（异步模块定义规范），简称AMD.</p>
 <p>通过AMD载入模块的代码一般这么写：</p>
 <pre><code>define([&apos;myModule&apos;, &apos;myOtherModule&apos;], function(myModule, myOtherModule) {
   console.log(myModule.hello());
@@ -428,8 +426,7 @@ myModuleInstance.goodbye(); // &apos;goodbye!&apos;
 </code></pre><p>重申一下，不像CommonJS，AMD是优先浏览器的一种异步载入模块的解决方案。（记得，很多人认为一个个地载入小文件是很低效的，我们将在下一篇文章理介绍如何打包模块）</p>
 <p>除了异步加载以外，AMD的另一个优点是你可以在模块里使用对象、函数、构造函数、字符串、JSON或者别的数据类型，而CommonJS只支持对象。</p>
 <p>再补充一点，AMD不支持Node里的一些诸如 IO,文件系统等其他服务器端的功能。另外语法上写起来也比CommonJS麻烦一些。</p>
-<p>###原生JS</p>
-<p>希望你坚持读到了现在，我们最后再介绍一种定义模块的方式。</p>
+<h3 id="原生JS"><a href="#原生JS" class="headerlink" title="原生JS"></a>原生JS</h3><p>希望你坚持读到了现在，我们最后再介绍一种定义模块的方式。</p>
 <p>你可能注意到了，上述的这几种方法都不是JS原生支持的。要么是通过模块模式来模拟，要么是使用CommonJS或AMD.</p>
 <p>幸运的是在JS的最新规范ECMAScript 6 (ES6)中，引入了模块功能。</p>
 <p>ES6 的模块功能汲取了CommonJS 和 AMD 的优点，拥有简洁的语法并支持异步加载，并且还有其他诸多更好的支持。</p>
@@ -519,8 +516,8 @@ console.log(counter.counter); // 2
 <nav id="article-nav">
   
   
-    <a href="/2016/09/15/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2016/09/12/first/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">第一个</div>
       <i class="icon-circle-right"></i>
     </a>
   
