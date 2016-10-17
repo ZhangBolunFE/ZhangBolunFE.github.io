@@ -1,28 +1,167 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ZhangBolun&#39;s blog</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
   
-  <link href="/atom.xml" rel="self"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>JavaScript 模块化入门Ⅰ | ZhangBolun&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="原文链接 
+
+声明：转载请注明出处。
+作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;amp;模块化载入” “Webpack&amp;amp;Browserify” 或者 “AMD&amp;amp;CMD”之类的术语，肯定瞬间就凌乱了。
+JavaScript的模块化听起来挺深奥，可其实理解它对开发者来说特别实用。
+在这篇文章里，我会尽量深入浅出地把这些深奥的术语翻译成浅显易懂的人话（加上一些代码示例）。希">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 模块化入门Ⅰ">
+<meta property="og:url" content="http://www.jasonchamberlain.com/2016/10/17/JavaScript-模块化入门Ⅰ/index.html">
+<meta property="og:site_name" content="ZhangBolun's blog">
+<meta property="og:description" content="原文链接 
+
+声明：转载请注明出处。
+作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;amp;模块化载入” “Webpack&amp;amp;Browserify” 或者 “AMD&amp;amp;CMD”之类的术语，肯定瞬间就凌乱了。
+JavaScript的模块化听起来挺深奥，可其实理解它对开发者来说特别实用。
+在这篇文章里，我会尽量深入浅出地把这些深奥的术语翻译成浅显易懂的人话（加上一些代码示例）。希">
+<meta property="og:updated_time" content="2016-10-17T14:14:41.977Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript 模块化入门Ⅰ">
+<meta name="twitter:description" content="原文链接 
+
+声明：转载请注明出处。
+作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;amp;模块化载入” “Webpack&amp;amp;Browserify” 或者 “AMD&amp;amp;CMD”之类的术语，肯定瞬间就凌乱了。
+JavaScript的模块化听起来挺深奥，可其实理解它对开发者来说特别实用。
+在这篇文章里，我会尽量深入浅出地把这些深奥的术语翻译成浅显易懂的人话（加上一些代码示例）。希">
   
-  <link href="http://www.jasonchamberlain.com/"/>
-  <updated>2016-10-17T14:14:41.977Z</updated>
-  <id>http://www.jasonchamberlain.com/</id>
+    <link rel="alternative" href="/atom.xml" title="ZhangBolun&#39;s blog" type="application/atom+xml">
   
-  <author>
-    <name>月与海</name>
+  
+    <!-- <link rel="icon" href="//favicon.ico"> -->
+    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  
+  <script src="/style.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://odk14g8q0.bkt.clouddn.com/2016/09/16/Fv14RTDuAKYjM2BgJsvHEsNHPpMs252.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">月与海</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/about/">关于我</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/ZhangBolunFE" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/zhangbolunnn" title="weibo">weibo</a>
+		        
+					<a class="rss" target="_blank" href="http://www.jasonchamberlain.com/atom.xml" title="rss">rss</a>
+		        
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Jasoniscuteman" title="zhihu">zhihu</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">月与海</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://odk14g8q0.bkt.clouddn.com/2016/09/16/Fv14RTDuAKYjM2BgJsvHEsNHPpMs252.jpg" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">月与海</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/about/">关于我</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ZhangBolunFE" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/zhangbolunnn" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="http://www.jasonchamberlain.com/atom.xml" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Jasoniscuteman" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        <article id="post-JavaScript-模块化入门Ⅰ" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>JavaScript 模块化入门Ⅰ</title>
-    <link href="http://www.jasonchamberlain.com/2016/10/17/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0/"/>
-    <id>http://www.jasonchamberlain.com/2016/10/17/JavaScript-模块化入门Ⅰ/</id>
-    <published>2016-10-17T13:40:01.000Z</published>
-    <updated>2016-10-17T14:14:41.977Z</updated>
+      <input type="hidden" class="isFancy" />
     
-    <content type="html"><![CDATA[<blockquote>
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript 模块化入门Ⅰ
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
 <p><a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq" target="_blank" rel="external">原文链接</a> </p>
 </blockquote>
 <p><strong>声明：转载请注明出处。</strong></p>
@@ -355,71 +494,224 @@ console.log(counter.counter); // 2
 <li>ECMAScript 模块载入API</li>
 <li>其他</li>
 </ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq&quot; target=&quot;_blank&quot; rel=
-    
-    </summary>
-    
-    
-      <category term="JS" scheme="http://www.jasonchamberlain.com/tags/JS/"/>
-    
-  </entry>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/10/17/JavaScript-模块化入门Ⅰ/" class="archive-article-date">
+  	<time datetime="2016-10-17T13:40:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-17</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+	</div>
+
+      
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
   
-  <entry>
-    <title>Hello World</title>
-    <link href="http://www.jasonchamberlain.com/2016/09/15/hello-world/"/>
-    <id>http://www.jasonchamberlain.com/2016/09/15/hello-world/</id>
-    <published>2016-09-15T15:34:39.419Z</published>
-    <updated>2016-09-15T15:34:39.421Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-  </entry>
+<nav id="article-nav">
   
-  <entry>
-    <title>第一个</title>
-    <link href="http://www.jasonchamberlain.com/2016/09/12/first/"/>
-    <id>http://www.jasonchamberlain.com/2016/09/12/first/</id>
-    <published>2016-09-11T20:08:38.000Z</published>
-    <updated>2016-09-15T20:11:03.061Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="睡觉"><a href="#睡觉" class="headerlink" title="睡觉"></a>睡觉</h3><ul>
-<li>好困</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h3 id=&quot;睡觉&quot;&gt;&lt;a href=&quot;#睡觉&quot; class=&quot;headerlink&quot; title=&quot;睡觉&quot;&gt;&lt;/a&gt;睡觉&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;好困&lt;/li&gt;
-&lt;/ul&gt;
+  
+    <a href="/2016/09/15/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 月与海
+        本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次, 本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/"
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 
     
-    </summary>
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
     
     
-      <category term="瞎写" scheme="http://www.jasonchamberlain.com/tags/%E7%9E%8E%E5%86%99/"/>
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
     
-  </entry>
+    
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/JS/" style="font-size: 10px;">JS</a> <a href="/tags/瞎写/" style="font-size: 10px;">瞎写</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+  </div>
   
-</feed>
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
