@@ -4,14 +4,27 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>ZhangBolun&#39;s blog</title>
+  <title>JavaScript 模块化入门ⅠⅠ | ZhangBolun&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="ZhangBolun's blog">
-<meta property="og:url" content="http://www.jasonchamberlain.com/index.html">
+  <meta name="description" content="原文链接:https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d 
+
+声明：转载请注明出处。在上一篇教程里我们已经讨论过什么是模块，为什么要使用模块以及多种实现模块化的方式。
+这次，我们会聊一聊什么是模块打包，为什么要打包模块，模块打包的方式工具，还有它当前">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript 模块化入门ⅠⅠ">
+<meta property="og:url" content="http://www.jasonchamberlain.com/2016/10/18/JavaScript-模块化入门ⅠⅠ/index.html">
 <meta property="og:site_name" content="ZhangBolun's blog">
+<meta property="og:description" content="原文链接:https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d 
+
+声明：转载请注明出处。在上一篇教程里我们已经讨论过什么是模块，为什么要使用模块以及多种实现模块化的方式。
+这次，我们会聊一聊什么是模块打包，为什么要打包模块，模块打包的方式工具，还有它当前">
+<meta property="og:updated_time" content="2016-11-20T12:07:00.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ZhangBolun's blog">
+<meta name="twitter:title" content="JavaScript 模块化入门ⅠⅠ">
+<meta name="twitter:description" content="原文链接:https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d 
+
+声明：转载请注明出处。在上一篇教程里我们已经讨论过什么是模块，为什么要使用模块以及多种实现模块化的方式。
+这次，我们会聊一聊什么是模块打包，为什么要打包模块，模块打包的方式工具，还有它当前">
   
     <link rel="alternative" href="/atom.xml" title="ZhangBolun&#39;s blog" type="application/atom+xml">
   
@@ -125,9 +138,7 @@
 </nav>
 
       <div class="body-wrap">
-        
-  
-    <article id="post-JavaScript-模块化入门ⅠⅠ" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-JavaScript-模块化入门ⅠⅠ" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -136,8 +147,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/18/JavaScript-模块化入门ⅠⅠ/">JavaScript 模块化入门ⅠⅠ</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript 模块化入门ⅠⅠ
     </h1>
   
 
@@ -354,383 +365,37 @@ filter([1, 2, 3], function(x) { return x === 2 });
   </div>
 </article>
 
-
-
-
-
-
-
-
-
-
   
-    <article id="post-JavaScript-模块化入门Ⅰ" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/10/17/JavaScript-模块化入门Ⅰ/">JavaScript 模块化入门Ⅰ</a>
-    </h1>
   
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq" target="_blank" rel="external">https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq</a> </p>
-</blockquote>
-<p><strong>声明：转载请注明出处。</strong></p>
-<p>作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;模块化载入” “Webpack&amp;Browserify” 或者 “AMD&amp;CMD”之类的术语，肯定瞬间就凌乱了。</p>
-<p>JavaScript的模块化听起来挺深奥，可其实理解它对开发者来说特别实用。</p>
-<p>在这篇文章里，我会尽量深入浅出地把这些深奥的术语翻译成浅显易懂的人话（加上一些代码示例）。希望你多少能从中学到点东西。</p>
-<blockquote>
-<p>为了避免长篇大论，整个内容会分为两篇文章，这是第一部分，主要介绍模块化是什么，为什么要使用模块。之后的第二部分会介绍如何打包JS模块，以及各类构建工具。</p>
-</blockquote>
-<h3 id="求解释到底什么是模块化"><a href="#求解释到底什么是模块化" class="headerlink" title="求解释到底什么是模块化"></a>求解释到底什么是模块化</h3><p>称职的作家会把他的书分章节和段落；好的程序员会把他的代码分成模块。</p>
-<p>就好像书籍的一章，模块仅仅是一坨代码而已。</p>
-<p>好的代码模块分割的内容一定是很合理的，便于你增加减少或者修改功能，同时又不会影响整个系统。</p>
-<h3 id="为什么要使用模块"><a href="#为什么要使用模块" class="headerlink" title="为什么要使用模块"></a>为什么要使用模块</h3><p>模块化可以使你的代码低耦合，功能模块直接不相互影响。我个人认为模块化主要有以下几点好处：</p>
-<p><strong>1.可维护性：</strong>根据定义，每个模块都是独立的。良好设计的模块会尽量与外部的代码撇清关系，<br>以便于独立对其进行改进和维护。维护一个独立的模块比起一团凌乱的代码来说要轻松很多。</p>
-<p><strong>2.命名空间：</strong>在JavaScript中，最高级别的函数外定义的变量都是全局变量（这意味着所有人都可以访问到它们）。<br>也正因如此，当一些无关的代码碰巧使用到同名变量的时候，我们就会遇到“命名空间污染”的问题。</p>
-<p>这样的问题在我们开发过程中是要极力避免的。</p>
-<p>后面的内容里我也会举一些具体的例子来说明这一点。</p>
-<p><strong>3.可复用性：</strong>现实来讲，在日常工作中我们经常会复制自己之前写过的代码到新项目中。</p>
-<p>复制粘贴虽然很快很方便，但难道我们找不到更好的办法了么？要是……有一个可以重复利用的模块岂不妙哉？</p>
-<h3 id="如何引入模块"><a href="#如何引入模块" class="headerlink" title="如何引入模块"></a>如何引入模块</h3><p>引入模块有很多种方式，这里我们先介绍一些：</p>
-<p><strong>模块模式</strong></p>
-<p>模块模式一般用来模拟类的概念（因为原生JavaScript并不支持类，虽然最新的ES6里引入了Class不过还不普及）这样我们就能把公有和私有方法还有变量存储在一个对象中——这就和我们在Java或Python里使用类的感觉一样。这样我们就能在公开调用API的同时，仍然在一个闭包范围内封装私有变量和方法。</p>
-<p>实现模块模式的方法有很多种，下面的例子是通过匿名闭包函数的方法。（在JavaScript中，函数是创建作用域的唯一方式。）</p>
-<p><strong>例1：匿名闭包函数</strong></p>
-<pre><code>(function () {
-  // 在函数的作用域中下面的变量是私有的
-
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  var average = function() {
-    var total = myGrades.reduce(function(accumulator, item) {
-      return accumulator + item}, 0);
-
-     return &apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-  }
-
-  var failing = function(){
-    var failingGrades = myGrades.filter(function(item) {
-      return item &lt; 70;});
-
-    return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-  }
-
-  console.log(failing());
-
-}());
-
-// 控制台显示：&apos;You failed 2 times.&apos;
-</code></pre><p>通过这种构造，我们的匿名函数有了自己的作用域或“闭包”。 这允许我们从父（全局）命名空间隐藏变量。</p>
-<p>这种方法的好处在于，你可以在函数内部使用局部变量，而不会意外覆盖同名全局变量，但仍然能够访问到全局变量，如下所示：</p>
-<pre><code>var global = &apos;Hello, I am a global variable :)&apos;;
-
-(function () {
-  // 在函数的作用域中下面的变量是私有的
-
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  var average = function() {
-    var total = myGrades.reduce(function(accumulator, item) {
-      return accumulator + item}, 0);
-
-    return &apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-  }
-
-  var failing = function(){
-    var failingGrades = myGrades.filter(function(item) {
-      return item &lt; 70;});
-
-    return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-  }
-
- console.log(failing());
-  console.log(global);
-}());
-
-// 控制台显示：&apos;You failed 2 times.&apos;
-// 控制台显示：&apos;Hello, I am a global variable :)&apos;
-</code></pre><p>要注意的是，一定要用括号把匿名函数包起来，以关键词function开头的语句总是会被解释成函数声明（JS中不允许没有命名的函数声明）<br>，而加上括号后，内部的代码就会被识别为函数表达式。其实这个也叫作立即执行函数（IIFE）</p>
-<p><strong>例2：全局引入</strong></p>
-<p>另一种比较受欢迎的方法是一些诸如jQuery的库使用的。<strong>全局引入</strong>和我们刚才举例的匿名闭包函数很相似，只是传入全局变量的方法不同：</p>
-<pre><code>(function (globalVariable) {
-
-  // 在函数的作用域中下面的变量是私有的
-  var privateFunction = function() {
-    console.log(&apos;Shhhh, this is private!&apos;);
-  }
-
-  // 通过全局变量设置下列方法的外部访问接口
-  // 与此同时这些方法又都在函数内部
-
-  globalVariable.each = function(collection, iterator) {
-    if (Array.isArray(collection)) {
-      for (var i = 0; i &lt; collection.length; i++) {
-        iterator(collection[i], i, collection);
-      }
-    } else {
-      for (var key in collection) {
-        iterator(collection[key], key, collection);
-      }
-    }
-};
-
-  globalVariable.filter = function(collection, test) {
-    var filtered = [];
-    globalVariable.each(collection, function(item) {
-      if (test(item)) {
-        filtered.push(item);
-    }
-    });
-    return filtered;
-};
-
-  globalVariable.map = function(collection, iterator) {
-    var mapped = [];
-    globalUtils.each(collection, function(value, key, collection) {
-      mapped.push(iterator(value));
-    });
-    return mapped;
-  };
-
-  globalVariable.reduce = function(collection, iterator, accumulator) {
-    var startingValueMissing = accumulator === undefined;
-
-    globalVariable.each(collection, function(item) {
-      if(startingValueMissing) {
-        accumulator = item;
-        startingValueMissing = false;
-      } else {
-        accumulator = iterator(accumulator, item);
-      }
-    });
-
-    return accumulator;
-
-   };
-
- }(globalVariable));
-</code></pre><p>在这个例子中，globalVariable 是唯一的全局变量。这种方法的好处是可以预先声明好全局变量，让你的代码更加清晰可读。</p>
-<p><strong>例3：对象接口</strong> </p>
-<p>像下面这样，还有一种创建模块的方法是使用独立的对象接口：</p>
-<pre><code>var myGradesCalculate = (function () {
-
-  // 在函数的作用域中下面的变量是私有的
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  // 通过接口在外部访问下列方法
-  // 与此同时这些方法又都在函数内部
-
-  return {
-    average: function() {
-      var total = myGrades.reduce(function(accumulator, item) {
-        return accumulator + item;
-        }, 0);
-
-      return&apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-    },
-
-    failing: function() {
-      var failingGrades = myGrades.filter(function(item) {
-          return item &lt; 70;
-      });
-
-        return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-    }
-  }
-})();
-
-myGradesCalculate.failing(); // &apos;You failed 2 times.&apos; 
-myGradesCalculate.average(); // &apos;Your average grade is 70.33333333333333.&apos;
-</code></pre><p><strong>例4：揭示模块模式 Revealing module pattern</strong></p>
-<p>这和我们之前的实现方法非常相近，除了它会确保，在所有的变量和方法暴露之前都会保持私有：</p>
-<pre><code>var myGradesCalculate = (function () {
-
-   // 在函数的作用域中下面的变量是私有的
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  var average = function() {
-    var total = myGrades.reduce(function(accumulator, item) {
-      return accumulator + item;
-      }, 0);
-
-    return&apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-  };
-
-  var failing = function() {
-    var failingGrades = myGrades.filter(function(item) {
-        return item &lt; 70;
-      });
-
-    return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-  };
-
-  // 将公有指针指向私有方法
-
-  return {
-    average: average,
-    failing: failing
-  }
-})();
-
-myGradesCalculate.failing(); // &apos;You failed 2 times.&apos; 
-myGradesCalculate.average(); // &apos;Your average grade is 70.33333333333333.&apos;
-</code></pre><p>到这里，其实我们只聊了模块模式的冰山一角。感兴趣的朋友可以阅读更详细的资料：</p>
-<ul>
-<li><a href="http://www.oschina.net/translate/javascript-module-pattern-in-depth" target="_blank" rel="external">深入理解JavaScript 模块模式</a></li>
-</ul>
-<h3 id="CommonJS-amp-AMD"><a href="#CommonJS-amp-AMD" class="headerlink" title="CommonJS &amp; AMD"></a>CommonJS &amp; AMD</h3><p>上述的所有解决方案都有一个共同点：使用单个全局变量来把所有的代码包含在一个函数内，由此来创建私有的命名空间和闭包作用域。</p>
-<p>虽然每种方法都比较有效，但也都有各自的短板。</p>
-<p>有一点，作为开发者，你必须清楚地了解引入依赖文件的正确顺序。就拿Backbone.js来举个例子，想要使用Backbone就必须在你的页面里引入Backbone的源文件。</p>
-<p>然而Backbone又依赖 Underscore.js，所以Backbone的引入必须在其之后。</p>
-<p>而在工作中，这些依赖管理经常会成为让人头疼的问题。</p>
-<p>另外一点，这些方法也有可能引起命名空间冲突。举个例子，要是你碰巧写了俩重名的模块怎么办？或者你同时需要一个模块的两个版本时该怎么办？</p>
-<p>难道就没有不通过全局作用域来实现的模块方法么？</p>
-<p>当然是有的。</p>
-<p>接下来介绍两种广受欢迎的解决方案：CommonJS 和 AMD.</p>
-<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>CommonJS 扩展了JavaScript声明模块的API.</p>
-<p>CommonJS模块可以很方便得将某个对象导出，让他们能够被其他模块通过 require 语句来引入。要是你写过 Node.js 应该很熟悉这些语法。</p>
-<p>通过CommonJS，每个JS文件独立地存储它模块的内容（就像一个被括起来的闭包一样）。在这种作用域中，我们通过 module.exports 语句来导出对象为模块，再通过 require 语句来引入。</p>
-<p>还是举个直观的例子吧：</p>
-<pre><code>function myModule() {
-  this.hello = function() {
-    return &apos;hello!&apos;;
-  }
-
-  this.goodbye = function() {
-    return &apos;goodbye!&apos;;
-  }
-}
-
-module.exports = myModule;
-</code></pre><p>通过指定导出的对象名称，CommonJS模块系统可以识别在其他文件引入这个模块时应该如何解释。</p>
-<p>然后在某个人想要调用 myMoudle 的时候，只需要 require 一下：</p>
-<pre><code>var myModule = require(&apos;myModule&apos;);
-
-var myModuleInstance = new myModule();
-myModuleInstance.hello(); // &apos;hello!&apos;
-myModuleInstance.goodbye(); // &apos;goodbye!&apos;
-</code></pre><p>这种实现比起模块模式有两点好处：</p>
-<p>避免全局命名空间污染<br>明确代码之间的依赖关系<br>并且这种书写方式也非常舒服友好，我自己很喜欢。</p>
-<p>需要注意的一点是，CommonJS以服务器优先的方式来同步载入模块，假使我们引入三个模块的话，他们会一个个地被载入。</p>
-<p>它在服务器端用起来很爽，可是在浏览器里就不会那么高效了。毕竟读取网络的文件要比本地耗费更多时间。只要它还在读取模块，浏览器载入的页面就会一直卡着不动。（在下一篇第二部分的教程里我们会讨论如何解决这个问题） </p>
-<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>CommonJS已经挺不错了，但假使我们想要实现异步加载模块该怎么办？答案就是Asynchronous Module Definition（异步模块定义规范），简称AMD.</p>
-<p>通过AMD载入模块的代码一般这么写：</p>
-<pre><code>define([&apos;myModule&apos;, &apos;myOtherModule&apos;], function(myModule, myOtherModule) {
-  console.log(myModule.hello());
-});
-</code></pre><p>这里我们使用 define 方法，第一个参数是依赖的模块，这些模块都会在后台无阻塞地加载，第二个参数则作为加载完毕的回调函数。</p>
-<p>回调函数将会使用载入的模块作为参数。在这个例子里就是 myMoudle 和 myOtherModule.最后，这些模块本身也需要通过 define 关键词来定义。</p>
-<p>拿 myModule 来举个例子：</p>
-<pre><code>define([], function() {
-
-  return {
-    hello: function() {
-      console.log(&apos;hello&apos;);
-    },
-    goodbye: function() {
-      console.log(&apos;goodbye&apos;);
-    }
-  };
-});
-</code></pre><p>重申一下，不像CommonJS，AMD是优先浏览器的一种异步载入模块的解决方案。（记得，很多人认为一个个地载入小文件是很低效的，我们将在下一篇文章理介绍如何打包模块）</p>
-<p>除了异步加载以外，AMD的另一个优点是你可以在模块里使用对象、函数、构造函数、字符串、JSON或者别的数据类型，而CommonJS只支持对象。</p>
-<p>再补充一点，AMD不支持Node里的一些诸如 IO,文件系统等其他服务器端的功能。另外语法上写起来也比CommonJS麻烦一些。</p>
-<h3 id="原生JS"><a href="#原生JS" class="headerlink" title="原生JS"></a>原生JS</h3><p>希望你坚持读到了现在，我们最后再介绍一种定义模块的方式。</p>
-<p>你可能注意到了，上述的这几种方法都不是JS原生支持的。要么是通过模块模式来模拟，要么是使用CommonJS或AMD.</p>
-<p>幸运的是在JS的最新规范ECMAScript 6 (ES6)中，引入了模块功能。</p>
-<p>ES6 的模块功能汲取了CommonJS 和 AMD 的优点，拥有简洁的语法并支持异步加载，并且还有其他诸多更好的支持。</p>
-<p>我最喜欢的ES6 模块功能的特性是，导入是实时只读的。（CommonJS 只是相当于把导出的代码复制过来）。</p>
-<p>来看例子：</p>
-<pre><code>// lib/counter.js
-
-var counter = 1;
-
-function increment() {
-  counter++;
-}
-
-function decrement() {
-  counter--;
-}
-
-module.exports = {
-  counter: counter,
-  increment: increment,
-  decrement: decrement
-};
+    <a href="/2016/10/17/JavaScript-模块化入门Ⅰ/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JavaScript 模块化入门Ⅰ</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
 
-// src/main.js
-
-var counter = require(&apos;../../lib/counter&apos;);
-
-counter.increment();
-console.log(counter.counter); // 1
-</code></pre><p>上面这个例子中，我们一共创建了两份模块的实例，一个在导出的时候，一个在引入的时候。</p>
-<p>在 main.js 当中的实例是和原本模块完全不相干的。这也就解释了为什么调用了 counter.increment() 之后仍然返回1。因为我们引入的 counter 变量和模块里的是两个不同的实例。</p>
-<p>所以调用 counter.increment() 方法只会改变模块中的 counter .想要修改引入的 counter 只有手动一下啦：</p>
-<pre><code>counter.counter++;
-console.log(counter.counter); // 2
-</code></pre><p>而通过 import 语句，可以引入实时只读的模块：</p>
-<pre><code>// lib/counter.js
-export let counter = 1;
-
-export function increment() {
-  counter++;
-}
-
-export function decrement() {
-  counter--;
-}
 
 
-// src/main.js
-import * as counter from &apos;../../counter&apos;;
-
-console.log(counter.counter); // 1
-counter.increment();
-console.log(counter.counter); // 2
-</code></pre><p>这看起来很酷不是么？这样就实现了我们把模块分隔在不同的文件里，需要的时候又可以合并在一起而且不影响它的功能。</p>
-<p>期待下一篇：模块打包</p>
-<p>我想看到这里的你应该已经对JavaScript模块化有了进一步的了解。</p>
-<p>在下一篇教程里，我们会介绍：</p>
-<p>为什么要打包模块</p>
-<ul>
-<li>几种不同的打包构建方式</li>
-<li>ECMAScript 模块载入API</li>
-<li>其他</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/10/17/JavaScript-模块化入门Ⅰ/" class="archive-article-date">
-  	<time datetime="2016-10-17T13:40:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-17</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+	    <a class="jiathis_button_twitter"></a>
+	    <a class="jiathis_button_plus"></a> 
+	    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
 	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
 
 
@@ -738,63 +403,6 @@ console.log(counter.counter); // 2
 
 
 
-
-
-
-  
-    <article id="post-first" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/09/12/first/">第一个</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="睡觉"><a href="#睡觉" class="headerlink" title="睡觉"></a>睡觉</h3><ul>
-<li>好困</li>
-</ul>
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/09/12/first/" class="archive-article-date">
-  	<time datetime="2016-09-11T20:08:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/瞎写/">瞎写</a></li></ul>
-	</div>
-
-      
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-  
 
 
       </div>
@@ -819,8 +427,8 @@ console.log(counter.counter); // 2
 		fancybox: true,
 		mathjax: true,
 		animate: true,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
