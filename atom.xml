@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zblweb.com/"/>
-  <updated>2016-12-08T18:26:04.218Z</updated>
+  <updated>2016-12-08T18:28:28.452Z</updated>
   <id>http://www.zblweb.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.zblweb.com/2016/12/01/Hexo%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
     <id>http://www.zblweb.com/2016/12/01/Hexo主题优化（持续更新）/</id>
     <published>2016-12-01T13:40:01.000Z</published>
-    <updated>2016-12-08T18:26:04.218Z</updated>
+    <updated>2016-12-08T18:28:28.452Z</updated>
     
     <content type="html"><![CDATA[<h3 id="添加多说"><a href="#添加多说" class="headerlink" title="添加多说"></a>添加多说</h3><p>我的BLOG用的评论系统是多说，一开始按照官网设置总是有问题，经过长时间的尝试，终于解决了问题，写出来避免大家再次踩坑。</p>
 <p>因为我的主题是yilia，所以我这里按照yilia来，不过主题都大同小异，按照方法大概是都可以弄懂的。</p>
@@ -28,25 +28,21 @@
 <li><p>首先在 &gt; <a href="http://duoshuo.com/" target="_blank" rel="external">多说</a> ,注册一个账号登录 , 添加新站点 bolunnn（这个是你多说的域名，我的域名是bolunnn.duoshuo.com，所以就是bolunnn）</p>
 </li>
 <li><p>然后点击左侧的 工具-&gt;获取代码界面，可以看到通用代码：</p>
- <pre><code>
  <!-- 多说评论框 start -->
-     <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+<p> <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div></p>
  <!-- 多说评论框 end -->
  <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
- <script type="text/javascript">
- var duoshuoQuery = {short_name:"bolunnn"};
-     (function() {
-         var ds = document.createElement('script');
-         ds.type = 'text/javascript';ds.async = true;
-         ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-         ds.charset = 'UTF-8';
-         (document.getElementsByTagName('head')[0]
-          || document.getElementsByTagName('body')[0]).appendChild(ds);
-     })();
-     </script>
+<p> <script type="text/javascript"></p>
+<pre><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;};
+(function() {
+    var ds = document.createElement(&apos;script&apos;);
+    ds.type = &apos;text/javascript&apos;;ds.async = true;
+    ds.src = (document.location.protocol == &apos;https:&apos; ? &apos;https:&apos; : &apos;http:&apos;) + &apos;//static.duoshuo.com/embed.js&apos;;
+    ds.charset = &apos;UTF-8&apos;;
+    (document.getElementsByTagName(&apos;head&apos;)[0]|| document.getElementsByTagName(&apos;body&apos;)[0]).appendChild(ds);
+})();
+</code></pre><p> </script></p>
  <!-- 多说公共JS代码 end -->
- </code></pre>
-
 </li>
 </ol>
 <p><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;}</code> 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。</p>
