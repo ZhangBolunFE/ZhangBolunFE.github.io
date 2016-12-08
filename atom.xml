@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://www.jasonchamberlain.com/"/>
+  <link href="http://www.zblweb.com/"/>
   <updated>2016-11-20T15:41:42.105Z</updated>
-  <id>http://www.jasonchamberlain.com/</id>
+  <id>http://www.zblweb.com/</id>
   
   <author>
     <name>月与海</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>JavaScript 模块化入门ⅠⅠ</title>
-    <link href="http://www.jasonchamberlain.com/2016/10/18/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0%E2%85%A0/"/>
-    <id>http://www.jasonchamberlain.com/2016/10/18/JavaScript-模块化入门ⅠⅠ/</id>
+    <link href="http://www.zblweb.com/2016/10/18/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0%E2%85%A0/"/>
+    <id>http://www.zblweb.com/2016/10/18/JavaScript-模块化入门ⅠⅠ/</id>
     <published>2016-10-18T13:40:01.000Z</published>
     <updated>2016-11-20T15:41:42.105Z</updated>
     
@@ -220,14 +220,14 @@ filter([1, 2, 3], function(x) { return x === 2 });
     </summary>
     
     
-      <category term="JS" scheme="http://www.jasonchamberlain.com/tags/JS/"/>
+      <category term="JS" scheme="http://www.zblweb.com/tags/JS/"/>
     
   </entry>
   
   <entry>
     <title>JavaScript 模块化入门Ⅰ</title>
-    <link href="http://www.jasonchamberlain.com/2016/10/17/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0/"/>
-    <id>http://www.jasonchamberlain.com/2016/10/17/JavaScript-模块化入门Ⅰ/</id>
+    <link href="http://www.zblweb.com/2016/10/17/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0/"/>
+    <id>http://www.zblweb.com/2016/10/17/JavaScript-模块化入门Ⅰ/</id>
     <published>2016-10-17T13:40:01.000Z</published>
     <updated>2016-11-20T11:29:14.542Z</updated>
     
@@ -570,14 +570,14 @@ console.log(counter.counter); // 2
     </summary>
     
     
-      <category term="JS" scheme="http://www.jasonchamberlain.com/tags/JS/"/>
+      <category term="JS" scheme="http://www.zblweb.com/tags/JS/"/>
     
   </entry>
   
   <entry>
     <title>第一个</title>
-    <link href="http://www.jasonchamberlain.com/2016/09/12/first/"/>
-    <id>http://www.jasonchamberlain.com/2016/09/12/first/</id>
+    <link href="http://www.zblweb.com/2016/09/12/first/"/>
+    <id>http://www.zblweb.com/2016/09/12/first/</id>
     <published>2016-09-11T20:08:38.000Z</published>
     <updated>2016-09-15T20:11:03.061Z</updated>
     
@@ -596,7 +596,7 @@ console.log(counter.counter); // 2
     </summary>
     
     
-      <category term="瞎写" scheme="http://www.jasonchamberlain.com/tags/%E7%9E%8E%E5%86%99/"/>
+      <category term="瞎写" scheme="http://www.zblweb.com/tags/%E7%9E%8E%E5%86%99/"/>
     
   </entry>
   
