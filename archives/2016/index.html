@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   
+  <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://www.jasonchamberlain.com">
   <title>Archives: 2016 | ZhangBolun&#39;s blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
@@ -16,23 +18,22 @@
     <link rel="alternative" href="/atom.xml" title="ZhangBolun&#39;s blog" type="application/atom+xml">
   
   
-    <!-- <link rel="icon" href="//favicon.ico"> -->
-    <link href="../favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico">
   
-  <script src="/style.js"></script>
-  <meta property="wb:webmaster" content="4eaae3c1bdd0338a" />
+  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  
+
 </head>
 
 <body>
-  <div id="container">
-    <div class="left-col">
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
       <div class="overlay"></div>
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			
 			<img src="http://odk14g8q0.bkt.clouddn.com/2016/09/16/Fv14RTDuAKYjM2BgJsvHEsNHPpMs252.jpg" class="js-avatar">
-			
 		</a>
 
 		<hgroup>
@@ -54,12 +55,12 @@
 	        
     		
     			
-    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
     			
     			
             
     			
-    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			<a data-idx="1" q-on="click: openSlider(e, 'tagcloud')" href="javascript:void(0)">标签</a>
     			
     			
             
@@ -67,13 +68,13 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="https://github.com/ZhangBolunFE" title="github">github</a>
+					<a class="github" target="_blank" href="https://github.com/ZhangBolunFE" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="http://weibo.com/zhangbolunnn" title="weibo">weibo</a>
+					<a class="weibo" target="_blank" href="http://weibo.com/zhangbolunnn" title="weibo"><i class="icon-weibo"></i></a>
 		        
-					<a class="rss" target="_blank" href="http://www.jasonchamberlain.com/atom.xml" title="rss">rss</a>
+					<a class="rss" target="_blank" href="http://www.jasonchamberlain.com/atom.xml" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Jasoniscuteman" title="zhihu">zhihu</a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Jasoniscuteman" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -81,18 +82,16 @@
 </div>
 
     </div>
-    <div class="mid-col">
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
       <nav id="mobile-nav">
   	<div class="overlay">
-  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
   		<h1 class="header-author js-mobile-header hide">月与海</h1>
   	</div>
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				
-					<img src="http://odk14g8q0.bkt.clouddn.com/2016/09/16/Fv14RTDuAKYjM2BgJsvHEsNHPpMs252.jpg" class="js-avatar">
-				
+				<img src="http://odk14g8q0.bkt.clouddn.com/2016/09/16/Fv14RTDuAKYjM2BgJsvHEsNHPpMs252.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author">月与海</h1>
@@ -105,18 +104,21 @@
 		        
 					<li><a href="/about/">关于我</a></li>
 		        
+		        
+		        	<li><a href="/archives">所有文章</a></li>
+		        
 				</ul>
 			</nav>
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="https://github.com/ZhangBolunFE" title="github">github</a>
+						<a class="github" target="_blank" href="https://github.com/ZhangBolunFE" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="http://weibo.com/zhangbolunnn" title="weibo">weibo</a>
+						<a class="weibo" target="_blank" href="http://weibo.com/zhangbolunnn" title="weibo"><i class="icon-weibo"></i></a>
 			        
-						<a class="rss" target="_blank" href="http://www.jasonchamberlain.com/atom.xml" title="rss">rss</a>
+						<a class="rss" target="_blank" href="http://www.jasonchamberlain.com/atom.xml" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Jasoniscuteman" title="zhihu">zhihu</a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/Jasoniscuteman" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -124,8 +126,13 @@
 	</div>
 </nav>
 
-      <div class="body-wrap">
-        
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            
   
   
     
@@ -143,7 +150,7 @@
     <header class="archive-article-header">
       	<div class="article-meta">
 	      	<a href="/2016/10/18/JavaScript-模块化入门ⅠⅠ/" class="archive-article-date">
-  	<time datetime="2016-10-18T13:40:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-18</time>
+  	<time datetime="2016-10-18T13:40:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-18</time>
 </a>
         </div>
     	 
@@ -175,7 +182,7 @@
     <header class="archive-article-header">
       	<div class="article-meta">
 	      	<a href="/2016/10/17/JavaScript-模块化入门Ⅰ/" class="archive-article-date">
-  	<time datetime="2016-10-17T13:40:01.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-10-17</time>
+  	<time datetime="2016-10-17T13:40:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-17</time>
 </a>
         </div>
     	 
@@ -207,7 +214,7 @@
     <header class="archive-article-header">
       	<div class="article-meta">
 	      	<a href="/2016/09/12/first/" class="archive-article-date">
-  	<time datetime="2016-09-11T20:08:38.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-09-12</time>
+  	<time datetime="2016-09-11T20:08:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-09-12</time>
 </a>
         </div>
     	 
@@ -239,13 +246,14 @@
     
 
 
+          </div>
+        </div>
       </div>
       <footer id="footer">
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
     		&copy; 2016 月与海
-        本站总访问量 <span id="busuanzi_value_site_pv"></span> 次, 访客数 <span id="busuanzi_value_site_uv"></span> 人次, 本文总阅读量 <span id="busuanzi_value_page_pv"></span> 次
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -253,28 +261,22 @@
     </div>
   </div>
 </footer>
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
     </div>
     <script>
 	var yiliaConfig = {
-		fancybox: true,
 		mathjax: true,
-		animate: true,
 		isHome: false,
 		isPost: false,
 		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		root: "/"
+		root: "/",
+		innerArchive: true
 	}
 </script>
 
-<script src="/./main.js"></script>
-
-
-
+<script src="/./main.js?v=4.0.0.js"></script>
 
 
 <script type="text/x-mathjax-config">
@@ -299,28 +301,70 @@ MathJax.Hub.Queue(function() {
 
 
     
-<div class="tools-col">
-  <ul class="btn-wrap">
-    
-      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
-    
-    
-      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
-    
-    
-    
-  </ul>
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
   <div class="tools-wrap">
     
-    	<section class="tools-section tools-section-all chose">
-    	</section>
-    
-
-    
-    	<section class="tools-section tools-section-tag">
-    			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/瞎写/" style="font-size: 10px;">瞎写</a>
-    			</div>
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">JS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">瞎写</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
     	</section>
     
 
@@ -360,7 +404,7 @@ MathJax.Hub.Queue(function() {
 
                 <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 
-                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
 
                 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
 
