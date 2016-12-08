@@ -20,7 +20,7 @@
 因为我的主题是yilia，所以我这里按照yilia来，不过主题都大同小异，按照方法大概是都可以弄懂的。
 1.首先在多说 ,注册一个账号登录 , 添加新站点 bolunnn（这个是你多说的域名，我的域名是bolunnn.duoshuo.com，所以就是bolunnn）
 2">
-<meta property="og:updated_time" content="2016-12-08T18:34:39.140Z">
+<meta property="og:updated_time" content="2016-12-08T18:54:10.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo主题优化（持续更新）">
 <meta name="twitter:description" content="添加多说我的BLOG用的评论系统是多说，一开始按照官网设置总是有问题，经过长时间的尝试，终于解决了问题，写出来避免大家再次踩坑。
@@ -186,7 +186,9 @@
         })();
     &lt;/script&gt;
 &lt;!-- 多说公共JS代码 end --&gt;
-</code></pre><p><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;}</code> 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。<br>3.打开hexo/themes/yilia/layout/_partial/post/duoshuo.ejs，可以看到：</p>
+</code></pre><p><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;}</code> 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。</p>
+<a id="more"></a>
+<p>3.打开hexo/themes/yilia/layout/_partial/post/duoshuo.ejs，可以看到：</p>
 <pre><code>&lt;div class=&quot;duoshuo&quot;&gt;
    &lt;!-- 多说评论框 start --&gt;
    &lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;&lt;%=key%&gt;&quot; data-title=&quot;&lt;%=title%&gt;&quot; data-url=&quot;&lt;%=url%&gt;&quot;&gt;&lt;/div&gt;
@@ -393,11 +395,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">HEXO</a>
+                <a href="javascript:void(0)">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JS</a>
+                <a href="javascript:void(0)">HEXO</a>
               </li>
              
               <li class="article-tag-list-item">

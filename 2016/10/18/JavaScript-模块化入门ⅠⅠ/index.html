@@ -20,7 +20,7 @@
 
 声明：转载请注明出处。在上一篇教程里我们已经讨论过什么是模块，为什么要使用模块以及多种实现模块化的方式。
 这次，我们会聊一聊什么是模块打包，为什么要打包模块，模块打包的方式工具，还有它当前">
-<meta property="og:updated_time" content="2016-11-20T15:41:42.105Z">
+<meta property="og:updated_time" content="2016-12-08T18:53:49.546Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript 模块化入门ⅠⅠ">
 <meta name="twitter:description" content="原文链接:https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d 
@@ -181,7 +181,8 @@
 <p>为了解决这个问题，我们就需要进行模块打包，把所有的模块合并到一个或几个文件中，以此来减少HTTP请求数。这也可以被称作是从开发到上线前的构建环节。</p>
 <p>还有一种提升加载速度的做法叫做代码压缩（混淆）。其实就是去除代码中不必要的空格、注释、换行符一类的字符，来保证在不影响代码正常工作的情况下压缩其体积。</p>
 <p>更小的文件体积也就意味着更短的加载时间。要是你仔细对比过带有 .min后缀的例如 jquery.min.js和jquery.js的话，应该会发现压缩版的文件相较之下要小很多。<br>Gulp和Grunt一类的构建工具可以很方便地解决上述的需求，在开发的时候通过模块来组织代码，上线时再合并压缩提供给浏览器。</p>
-<h3 id="打包模块的方法有哪些？"><a href="#打包模块的方法有哪些？" class="headerlink" title="打包模块的方法有哪些？"></a>打包模块的方法有哪些？</h3><p>如果你的代码是通过之前介绍过的模块模式来组织的，合并和压缩它们其实就只是把一些原生的JS代码合在一起而已。</p>
+<h3 id="打包模块的方法有哪些？"><a href="#打包模块的方法有哪些？" class="headerlink" title="打包模块的方法有哪些？"></a>打包模块的方法有哪些？</h3><a id="more"></a>
+<p>如果你的代码是通过之前介绍过的模块模式来组织的，合并和压缩它们其实就只是把一些原生的JS代码合在一起而已。</p>
 <p>但如果你使用的是一些浏览器原生不支持的模块系统（例如CommonJS 或 AMD，以及ES6 模块的支持现在也不完整），你就需要使用一些专门的构建工具来把它们转换成浏览器支持的代码。这类工具就是我们最近经常听说的Browserify, RequireJS, Webpack等等模块化构建、模块化加载工具了。</p>
 <p>为了实现模块化构建或载入的功能，这类工具提供许多诸如在你改动源代码后自动重新构建（文件监听）等一系列的功能。</p>
 <p>下面我们就一起来看一些实际的例子吧：</p>
@@ -549,11 +550,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">HEXO</a>
+                <a href="javascript:void(0)">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JS</a>
+                <a href="javascript:void(0)">HEXO</a>
               </li>
              
               <li class="article-tag-list-item">

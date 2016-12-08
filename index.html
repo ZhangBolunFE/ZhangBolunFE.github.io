@@ -161,7 +161,7 @@
       
         <h3 id="添加多说"><a href="#添加多说" class="headerlink" title="添加多说"></a>添加多说</h3><p>我的BLOG用的评论系统是多说，一开始按照官网设置总是有问题，经过长时间的尝试，终于解决了问题，写出来避免大家再次踩坑。</p>
 <p>因为我的主题是yilia，所以我这里按照yilia来，不过主题都大同小异，按照方法大概是都可以弄懂的。</p>
-<p>1.首先在<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a> ,注册一个账号登录 , 添加新站点 bolunnn（这个是你多说的域名，我的域名是bolunnn.duoshuo.com，所以就是bolunnn）</p>
+<p>1.首先在<a href="http://duoshuo.com/">多说</a> ,注册一个账号登录 , 添加新站点 bolunnn（这个是你多说的域名，我的域名是bolunnn.duoshuo.com，所以就是bolunnn）</p>
 <p>2.然后点击左侧的 工具-&gt;获取代码界面，可以看到通用代码：</p>
 <pre><code>&lt;!-- 多说评论框 start --&gt;
     &lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;请将此处替换成文章在你的站点中的ID&quot; data-title=&quot;请替换成文章的标题&quot; data-url=&quot;请替换成文章的网址&quot;&gt;&lt;/div&gt;
@@ -178,29 +178,8 @@
         })();
     &lt;/script&gt;
 &lt;!-- 多说公共JS代码 end --&gt;
-</code></pre><p><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;}</code> 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。<br>3.打开hexo/themes/yilia/layout/_partial/post/duoshuo.ejs，可以看到：</p>
-<pre><code>&lt;div class=&quot;duoshuo&quot;&gt;
-   &lt;!-- 多说评论框 start --&gt;
-   &lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;&lt;%=key%&gt;&quot; data-title=&quot;&lt;%=title%&gt;&quot; data-url=&quot;&lt;%=url%&gt;&quot;&gt;&lt;/div&gt;
-   &lt;!-- 多说评论框 end --&gt;
-   &lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&gt;
-   &lt;script type=&quot;text/javascript&quot;&gt;
-   var duoshuoQuery = {short_name:&quot;&lt;%=theme.duoshuo%&gt;&quot;};
-   (function() {
-      var ds = document.createElement(&apos;script&apos;);
-      ds.type = &apos;text/javascript&apos;;ds.async = true;
-      ds.src = (document.location.protocol == &apos;https:&apos; ? &apos;https:&apos; : &apos;http:&apos;) + &apos;//static.duoshuo.com/embed.js&apos;;
-      ds.charset = &apos;UTF-8&apos;;
-      (document.getElementsByTagName(&apos;head&apos;)[0]
-      || document.getElementsByTagName(&apos;body&apos;)[0]).appendChild(ds);
-   })();
-   &lt;/script&gt;
-   &lt;!-- 多说公共JS代码 end --&gt;
-&lt;/div&gt;
-</code></pre><p>我们需要填入的，是 <code>short_name:&quot;&lt;%=theme.duoshuo%&gt;&quot;</code> 的值，那么，在哪里填入呢？在hexo/themes/yilia/_config.yml文件中。</p>
-<p>是这样的，我们可以认为，_config.yml就是theme，而在_config.yml中写入duoshuo: bolunnn，就是给duoshuo赋值为voidking。</p>
-<p>当然，你也可以直接在duoshuo.ejs中把&lt;%=theme.duoshuo%&gt;替换为bolunnn。但是不建议这么做，因为这样破坏了作者可复用性设计。</p>
-
+</code></pre><p><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;}</code> 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。</p>
+        <a class="article-more-a"  href="/2016/12/01/Hexo主题优化（持续更新）/#more">more >></a>
       
 
       
@@ -250,7 +229,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d" target="_blank" rel="external">https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d</a> </p>
+<p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d">https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d</a> </p>
 </blockquote>
 <p><strong>声明：转载请注明出处。</strong><br>在上一篇教程里我们已经讨论过什么是模块，为什么要使用模块以及多种实现模块化的方式。</p>
 <p>这次，我们会聊一聊什么是模块打包，为什么要打包模块，模块打包的方式工具，还有它当前在Web开发中的运用。</p>
@@ -263,181 +242,8 @@
 <p>为了解决这个问题，我们就需要进行模块打包，把所有的模块合并到一个或几个文件中，以此来减少HTTP请求数。这也可以被称作是从开发到上线前的构建环节。</p>
 <p>还有一种提升加载速度的做法叫做代码压缩（混淆）。其实就是去除代码中不必要的空格、注释、换行符一类的字符，来保证在不影响代码正常工作的情况下压缩其体积。</p>
 <p>更小的文件体积也就意味着更短的加载时间。要是你仔细对比过带有 .min后缀的例如 jquery.min.js和jquery.js的话，应该会发现压缩版的文件相较之下要小很多。<br>Gulp和Grunt一类的构建工具可以很方便地解决上述的需求，在开发的时候通过模块来组织代码，上线时再合并压缩提供给浏览器。</p>
-<h3 id="打包模块的方法有哪些？"><a href="#打包模块的方法有哪些？" class="headerlink" title="打包模块的方法有哪些？"></a>打包模块的方法有哪些？</h3><p>如果你的代码是通过之前介绍过的模块模式来组织的，合并和压缩它们其实就只是把一些原生的JS代码合在一起而已。</p>
-<p>但如果你使用的是一些浏览器原生不支持的模块系统（例如CommonJS 或 AMD，以及ES6 模块的支持现在也不完整），你就需要使用一些专门的构建工具来把它们转换成浏览器支持的代码。这类工具就是我们最近经常听说的Browserify, RequireJS, Webpack等等模块化构建、模块化加载工具了。</p>
-<p>为了实现模块化构建或载入的功能，这类工具提供许多诸如在你改动源代码后自动重新构建（文件监听）等一系列的功能。</p>
-<p>下面我们就一起来看一些实际的例子吧：</p>
-<h3 id="打包-CommonJS"><a href="#打包-CommonJS" class="headerlink" title="打包 CommonJS"></a>打包 CommonJS</h3><p>在上一篇教程中我们了解到， CommonJS是同步载入模块的，这对浏览器来说不是很理想。其实下面介绍的模块化构建工具Browserify在上一篇也提到过。它是一个专门用来打包CommonJS模块以便在浏览器里运行的构建工具。</p>
-<p>举个例子，假如你在 main.js 文件中引入了一个用来计算平均数的功能模块：</p>
-<pre><code>var myDependency = require(&apos;myDependency&apos;);
-
-var myGrades = [93, 95, 88, 0, 91];
-
-var myAverageGrade = myDependency.average(myGrades);
-</code></pre><p> 在这个示例中，我们只有一个名为 myDependency 的模块依赖。通过下面的命令，Browserify会依次把main.js里引入的所有模块一同打包到一个名为 bundle.js 的文件里：<br>    browserify main.js -o bundle.js</p>
-<p>Browserify 首先会通过抽象语法树（AST）来解析代码中的每一个 require 语句，在分析完所有模块的依赖和结构之后，就会把所有的代码合并到一个文件中。然后你在HTML文件里引入一个bundle.js就够啦。<br>多个文件和多个依赖也只需要再稍微配置一下就能正常工作了。</p>
-<p>之后你也可以使用一些例如Minify-JS的工具来压缩代码。</p>
-<h3 id="打包-AMD"><a href="#打包-AMD" class="headerlink" title="打包 AMD"></a>打包 AMD</h3><p>假若你使用的是AMD，你会需要一些例如RequireJS 或 Curl的AMD加载器。模块化加载工具可以在你的应用中按需加载模块代码。</p>
-<p>需要再次提醒一下，AMD 和 CommonJS 的最主要区别是AMD是异步加载模块的。这也就意味着你不是必须把所有的代码打包到一个文件里，模块加载不影响后续语句执行，逐步加载的的模块也不会导致页面阻塞无法响应。</p>
-<p>不过在实际应用中，为了避免用户过多的请求对服务器造成压力。大多数的开发者还是选择用RequireJS optimizer, r.js一类的构建工具来合并和压缩AMD的模块。</p>
-<p>总的来说，AMD 和 CommonJS 在构建中最大的区别是，在开发过程中，采用AMD的应用直到正式上线发布之前都不需要构建。</p>
-<p>要是你对CommonJS vs. AMD的讨论感兴趣，可以看这一篇AMD is Not the Answer</p>
-<h3 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h3><p>Webpack 是新推出的构建工具里最受欢迎的。它兼容CommonJS, AMD, ES6各类规范。</p>
-<p>也许你会质疑，我们已经有这么多诸如Browserify 或 RequireJS 的工具了，为什么还需要 Webpack 呢？究其原因之一，Webpack 提供许多例如 code splitting（代码分割） 的有用功能，它可以把你的代码分割成一个个的 chunk 然后按需加载优化性能。</p>
-<p>举个例子，要是你的Web应用中的一些代码只在很少的情况下才会被用到，把它们全都打包到一个文件里是很低效的做法。所以我们就需要 code splitting 这样的功能来实现按需加载。而不是把那些很少人才会用到的代码一股脑儿全都下载到客户端去。</p>
-<p>code splitting 只是 Webpack 提供的众多强大功能之一。当然，网上也为这些模块化构建工具吵得不可开交。</p>
-<h3 id="ES6-模块"><a href="#ES6-模块" class="headerlink" title="ES6 模块"></a>ES6 模块</h3><p>看他们吵够了的话，接下来我就要介绍一下ES6模块了。假如你采用ES6模块，在不远的将来对那些构建工具的需求可能会小一些。首先我们还是看看ES6模块是怎么加载的吧。</p>
-<p>ES6模块和CommonJS, AMD一类规范最主要的区别是，当你载入一个模块时，载入的操作实际实在编译时执行的——也就是在代码执行之前。所以去掉那些不必要的exports导出语句可以优化我们应用的性能。</p>
-<p>有一个经常会被问到的问题：去除exports和冗余代码消除（UglifyJS一类工具执行后的效果）之间有什么区别？</p>
-<p>答案是这个要具体情况具体分析，感兴趣的话可以上Github看这个Repo：Rollup’s wiki</p>
-<p>让ES6模块与冗余代码消除（Dead code elimination）不同的是一种叫做tree shaking的技术。Tree shaking其实恰好是冗余代码消除的反向操作。它只加载你需要调用的代码，而不是删掉不会被执行的代码。我们还是用一个具体的例子说明吧：</p>
-<p>假设我们有如下一个使用ES6语法，名为 utils.js 的函数：</p>
-<pre><code>export function each(collection, iterator) {
-  if (Array.isArray(collection)) {
-    for (var i = 0; i &lt; collection.length; i++) {
-      iterator(collection[i], i, collection);
-    }
-  } else {
-    for (var key in collection) {
-      iterator(collection[key], key, collection);
-    }
-  }
-}
-
- export function filter(collection, test) {
-  var filtered = [];
-  each(collection, function(item) {
-    if (test(item)) {
-      filtered.push(item);
-    }
-  });
-    return filtered;
- }
-
-export function map(collection, iterator) {
-  var mapped = [];
-  each(collection, function(value, key, collection) {
-    mapped.push(iterator(value));
-  });
-  return mapped;
-}
-
-export function reduce(collection, iterator, accumulator) {
-    var startingValueMissing = accumulator === undefined;
-
-    each(collection, function(item) {
-      if(startingValueMissing) {
-        accumulator = item;
-        startingValueMissing = false;
-      } else {
-        accumulator = iterator(accumulator, item);
-      }
-    });
-
-    return accumulator;
-}
-</code></pre><p>现在我们也不清楚到底需要这个函数的哪些功能，所以先全部引入到 main.js 中：</p>
-<pre><code>//main.js
-import * as Utils from &apos;./utils.js&apos;;
-</code></pre><p> 之后我们再调用一下 each 函数：</p>
-<pre><code>//main.js
-import * as Utils from &apos;./utils.js&apos;;
-
-Utils.each([1, 2, 3], function(x) { console.log(x) });
-</code></pre><p>通过 “tree shaken” 之后的 main.js 看起来就像下面这样：</p>
-<pre><code>//treeshake.js 
-function each(collection, iterator) {
-  if (Array.isArray(collection)) {
-    for (var i = 0; i &lt; collection.length; i++) {
-      iterator(collection[i], i, collection);
-    }
-  } else {
-    for (var key in collection) {
-      iterator(collection[key], key, collection);
-    }
-  }
-};
-
-each([1, 2, 3], function(x) { console.log(x) });
-</code></pre><p> 注意到这里只导出了我们调用过的 each 方法。</p>
-<p>再如果我们只调用 filter 方法的话：</p>
-<pre><code>//main.js
-import * as Utils from &apos;./utils.js&apos;;
-
-Utils.filter([1, 2, 3], function(x) { return x === 2 });
-</code></pre><p> “Tree shaken” 之后就会变成这样：</p>
-<pre><code>function each(collection, iterator) {
-  if (Array.isArray(collection)) {
-    for (var i = 0; i &lt; collection.length; i++) {
-      iterator(collection[i], i, collection);
-    }
-  } else {
-    for (var key in collection) {
-      iterator(collection[key], key, collection);
-    }
-  }
-};
-
-function filter(collection, test) {
-  var filtered = [];
-  //注意在filter中调用了each，所以两个方法都会被引入
-  each(collection, function(item) {
-    if (test(item)) {
-      filtered.push(item);
-    }
-  });
-  return filtered;
-};
-
-filter([1, 2, 3], function(x) { return x === 2 });
-</code></pre><p>很神奇不是么？</p>
-<p>你也可以自己在Rollup.js的实时预览编辑器里做做试验 </p>
-<h3 id="构建ES6模块"><a href="#构建ES6模块" class="headerlink" title="构建ES6模块"></a>构建ES6模块</h3><p>现在我们已经了解到ES6模块载入的与众不同了，但我们还没有聊到底该怎么构建ES6模块。</p>
-<p>因为浏览器对ES6模块的原生支持还不够完善，所以现阶段还需要我们做一些补充工作。</p>
-<p>让ES6模块在浏览器中顺利运行的常用方法有以下几种：</p>
-<p>1.使用语法编译器（Babel或Traceur）来把ES6语法的代码编译成ES5或者CommonJS, AMD, UMD等其他形式。然后再通过Browserify 或 Webpack 一类的构建工具来进行构建。</p>
-<p>2.使用Rollup.js，这其实和上面差不多，只是Rollup还会捎带的利用“tree shaking”技术来优化你的代码。在构建ES6模块时Rollup优于Browserify或Webpack的也正是这一点，它打包出来的文件体积会更小。Rollup也可以把你的代码转换成包括ES6, CommonJS, AMD, UMD, IIFE在内的各种格式。其中IIFE和UMD可以直接在浏览器里运行，AMD, CommonJS, ES6等还需要你通过Browserify, Webpack, RequireJS一类的工具才能在浏览器中使用。</p>
-<h3 id="小心踩坑"><a href="#小心踩坑" class="headerlink" title="小心踩坑"></a>小心踩坑</h3><p>这里有一些坑还需要和大家说明一下。转换语法优雅的ES6代码以便在浏览器里运行并不是一件令人舒爽的事情。</p>
-<p>问题在于，什么时候我们才能免去这些多余的工作。</p>
-<p>令人感动的答案是：“差不多快了。”</p>
-<p>ECMAScript目前包含一个名为ECMAScript 6 module loader API 的解决方案。简单来讲，这个解决方案允许你动态加载模块并缓存。还是来举例说明：</p>
-<h4 id="myModule-js"><a href="#myModule-js" class="headerlink" title="myModule.js"></a>myModule.js</h4><pre><code>export class myModule {
-  constructor() {
-    console.log(&apos;Hello, I am a module&apos;);
-  }
-
-  hello() {
-    console.log(&apos;hello!&apos;);
-  }
-
-  goodbye() {
-    console.log(&apos;goodbye!&apos;);
-  }
-}
-</code></pre><h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><pre><code>System.import(&apos;myModule&apos;).then(function(myModule) {
-  new myModule.hello();
-});
-
-// ‘Hello!, I am a module!’
-</code></pre><p>同样，你可以在script标签上设置type=module的属性来直接定义模块： </p>
-<pre><code>&lt;script type=&quot;module&quot;&gt;
-  // loads the &apos;myModule&apos; export from &apos;mymodule.js&apos;
-  import { hello } from &apos;mymodule&apos;;
-  new Hello(); // &apos;Hello, I am a module!&apos;
-&lt;/script&gt;
-</code></pre><p>如果你现在就想测试这个解决方案的话，我在这里也安利一下 SystemJS. SystemJS支持在浏览器端和Node动态加载之前介绍过所有格式的模块（ES6 modules, AMD, CommonJS等），通过把已加载的模块还存在”module registry”里来避免重复加载。它也同样支持转换ES6的代码至其他格式。</p>
-<h3 id="我们已经有了原生ES6模块，还需要那些乱七八糟的玩意儿么？"><a href="#我们已经有了原生ES6模块，还需要那些乱七八糟的玩意儿么？" class="headerlink" title="我们已经有了原生ES6模块，还需要那些乱七八糟的玩意儿么？"></a>我们已经有了原生ES6模块，还需要那些乱七八糟的玩意儿么？</h3><p>越来越多的人使用ES6模块产生了一些有趣的影响：</p>
-<h4 id="HTTP-2-出现之后，模块化构建工具是不是都该被淘汰了？"><a href="#HTTP-2-出现之后，模块化构建工具是不是都该被淘汰了？" class="headerlink" title="HTTP/2 出现之后，模块化构建工具是不是都该被淘汰了？"></a>HTTP/2 出现之后，模块化构建工具是不是都该被淘汰了？</h4><p>在HTTP/1中，一次TCP连接只允许一个请求，所以我们需要通过减少载入的文件数来优化性能。而HTTP/2改变了这一切，请求和响应可以并行，一次连接也允许多个请求。</p>
-<p>每次请求的消耗也会远远小于HTTP/1，所以载入一堆模块就不再是一个影响性能的问题了。所以许多人认为打包模块完全就是多余的了。这听起来很合理，但我们也需要具体情况具体分析。</p>
-<p>其中有一条，模块化构建解决了一些HTTP/2解决不了的问题。例如去除冗余的代码以压缩体积。要是你开发的是一个对性能要求很高的网站，模块化构建从长远上考虑会给你带来更多好处。当然，要是你不那么在意性能问题，以后完全就可以省却这些烦人的步骤了。</p>
-<p>总之，我们离所有的网站都采用HTTP/2传输还有相当一段时间。短期内模块化构建还是很有必要的。</p>
-<p>要是你对HTTP/2的其他特性也感兴趣，可以查阅这里：HTTP/2</p>
-<h4 id="CommonJS-AMD-UMD这类标准会过时么？"><a href="#CommonJS-AMD-UMD这类标准会过时么？" class="headerlink" title="CommonJS , AMD, UMD这类标准会过时么？"></a>CommonJS , AMD, UMD这类标准会过时么？</h4><p>一旦ES6成为了模块化的标准，我们还需要这些非原生的东西么？</p>
-<p>这点还值得商榷。</p>
-<p>在JavaScript中采用统一标准，通过import和export来使用模块，省略所有繁杂的多余步骤确实很爽。不过到底要多久ES6才能成为真正的模块化标准呢？</p>
-<p>反正不会很快。</p>
-<p>并且开发者也有各自的偏好，“唯一的解决方案”永远也不会存在。 </p>
-
+<h3 id="打包模块的方法有哪些？"><a href="#打包模块的方法有哪些？" class="headerlink" title="打包模块的方法有哪些？"></a>打包模块的方法有哪些？</h3>
+        <a class="article-more-a"  href="/2016/10/18/JavaScript-模块化入门ⅠⅠ/#more">more >></a>
       
 
       
@@ -487,7 +293,7 @@ filter([1, 2, 3], function(x) { return x === 2 });
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq" target="_blank" rel="external">https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq</a> </p>
+<p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq">https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq</a> </p>
 </blockquote>
 <p><strong>声明：转载请注明出处。</strong></p>
 <p>作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;模块化载入” “Webpack&amp;Browserify” 或者 “AMD&amp;CMD”之类的术语，肯定瞬间就凌乱了。</p>
@@ -503,319 +309,8 @@ filter([1, 2, 3], function(x) { return x === 2 });
 <p><strong>1.可维护性：</strong>根据定义，每个模块都是独立的。良好设计的模块会尽量与外部的代码撇清关系，<br>以便于独立对其进行改进和维护。维护一个独立的模块比起一团凌乱的代码来说要轻松很多。</p>
 <p><strong>2.命名空间：</strong>在JavaScript中，最高级别的函数外定义的变量都是全局变量（这意味着所有人都可以访问到它们）。<br>也正因如此，当一些无关的代码碰巧使用到同名变量的时候，我们就会遇到“命名空间污染”的问题。</p>
 <p>这样的问题在我们开发过程中是要极力避免的。</p>
-<p>后面的内容里我也会举一些具体的例子来说明这一点。</p>
-<p><strong>3.可复用性：</strong>现实来讲，在日常工作中我们经常会复制自己之前写过的代码到新项目中。</p>
-<p>复制粘贴虽然很快很方便，但难道我们找不到更好的办法了么？要是……有一个可以重复利用的模块岂不妙哉？</p>
-<h3 id="如何引入模块"><a href="#如何引入模块" class="headerlink" title="如何引入模块"></a>如何引入模块</h3><p>引入模块有很多种方式，这里我们先介绍一些：</p>
-<p><strong>模块模式</strong></p>
-<p>模块模式一般用来模拟类的概念（因为原生JavaScript并不支持类，虽然最新的ES6里引入了Class不过还不普及）这样我们就能把公有和私有方法还有变量存储在一个对象中——这就和我们在Java或Python里使用类的感觉一样。这样我们就能在公开调用API的同时，仍然在一个闭包范围内封装私有变量和方法。</p>
-<p>实现模块模式的方法有很多种，下面的例子是通过匿名闭包函数的方法。（在JavaScript中，函数是创建作用域的唯一方式。）</p>
-<p><strong>例1：匿名闭包函数</strong></p>
-<pre><code>(function () {
-  // 在函数的作用域中下面的变量是私有的
-
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  var average = function() {
-    var total = myGrades.reduce(function(accumulator, item) {
-      return accumulator + item}, 0);
-
-     return &apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-  }
-
-  var failing = function(){
-    var failingGrades = myGrades.filter(function(item) {
-      return item &lt; 70;});
-
-    return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-  }
-
-  console.log(failing());
-
-}());
-
-// 控制台显示：&apos;You failed 2 times.&apos;
-</code></pre><p>通过这种构造，我们的匿名函数有了自己的作用域或“闭包”。 这允许我们从父（全局）命名空间隐藏变量。</p>
-<p>这种方法的好处在于，你可以在函数内部使用局部变量，而不会意外覆盖同名全局变量，但仍然能够访问到全局变量，如下所示：</p>
-<pre><code>var global = &apos;Hello, I am a global variable :)&apos;;
-
-(function () {
-  // 在函数的作用域中下面的变量是私有的
-
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  var average = function() {
-    var total = myGrades.reduce(function(accumulator, item) {
-      return accumulator + item}, 0);
-
-    return &apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-  }
-
-  var failing = function(){
-    var failingGrades = myGrades.filter(function(item) {
-      return item &lt; 70;});
-
-    return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-  }
-
- console.log(failing());
-  console.log(global);
-}());
-
-// 控制台显示：&apos;You failed 2 times.&apos;
-// 控制台显示：&apos;Hello, I am a global variable :)&apos;
-</code></pre><p>要注意的是，一定要用括号把匿名函数包起来，以关键词function开头的语句总是会被解释成函数声明（JS中不允许没有命名的函数声明）<br>，而加上括号后，内部的代码就会被识别为函数表达式。其实这个也叫作立即执行函数（IIFE）</p>
-<p><strong>例2：全局引入</strong></p>
-<p>另一种比较受欢迎的方法是一些诸如jQuery的库使用的。<strong>全局引入</strong>和我们刚才举例的匿名闭包函数很相似，只是传入全局变量的方法不同：</p>
-<pre><code>(function (globalVariable) {
-
-  // 在函数的作用域中下面的变量是私有的
-  var privateFunction = function() {
-    console.log(&apos;Shhhh, this is private!&apos;);
-  }
-
-  // 通过全局变量设置下列方法的外部访问接口
-  // 与此同时这些方法又都在函数内部
-
-  globalVariable.each = function(collection, iterator) {
-    if (Array.isArray(collection)) {
-      for (var i = 0; i &lt; collection.length; i++) {
-        iterator(collection[i], i, collection);
-      }
-    } else {
-      for (var key in collection) {
-        iterator(collection[key], key, collection);
-      }
-    }
-};
-
-  globalVariable.filter = function(collection, test) {
-    var filtered = [];
-    globalVariable.each(collection, function(item) {
-      if (test(item)) {
-        filtered.push(item);
-    }
-    });
-    return filtered;
-};
-
-  globalVariable.map = function(collection, iterator) {
-    var mapped = [];
-    globalUtils.each(collection, function(value, key, collection) {
-      mapped.push(iterator(value));
-    });
-    return mapped;
-  };
-
-  globalVariable.reduce = function(collection, iterator, accumulator) {
-    var startingValueMissing = accumulator === undefined;
-
-    globalVariable.each(collection, function(item) {
-      if(startingValueMissing) {
-        accumulator = item;
-        startingValueMissing = false;
-      } else {
-        accumulator = iterator(accumulator, item);
-      }
-    });
-
-    return accumulator;
-
-   };
-
- }(globalVariable));
-</code></pre><p>在这个例子中，globalVariable 是唯一的全局变量。这种方法的好处是可以预先声明好全局变量，让你的代码更加清晰可读。</p>
-<p><strong>例3：对象接口</strong> </p>
-<p>像下面这样，还有一种创建模块的方法是使用独立的对象接口：</p>
-<pre><code>var myGradesCalculate = (function () {
-
-  // 在函数的作用域中下面的变量是私有的
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  // 通过接口在外部访问下列方法
-  // 与此同时这些方法又都在函数内部
-
-  return {
-    average: function() {
-      var total = myGrades.reduce(function(accumulator, item) {
-        return accumulator + item;
-        }, 0);
-
-      return&apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-    },
-
-    failing: function() {
-      var failingGrades = myGrades.filter(function(item) {
-          return item &lt; 70;
-      });
-
-        return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-    }
-  }
-})();
-
-myGradesCalculate.failing(); // &apos;You failed 2 times.&apos; 
-myGradesCalculate.average(); // &apos;Your average grade is 70.33333333333333.&apos;
-</code></pre><p><strong>例4：揭示模块模式 Revealing module pattern</strong></p>
-<p>这和我们之前的实现方法非常相近，除了它会确保，在所有的变量和方法暴露之前都会保持私有：</p>
-<pre><code>var myGradesCalculate = (function () {
-
-   // 在函数的作用域中下面的变量是私有的
-  var myGrades = [93, 95, 88, 0, 55, 91];
-
-  var average = function() {
-    var total = myGrades.reduce(function(accumulator, item) {
-      return accumulator + item;
-      }, 0);
-
-    return&apos;Your average grade is &apos; + total / myGrades.length + &apos;.&apos;;
-  };
-
-  var failing = function() {
-    var failingGrades = myGrades.filter(function(item) {
-        return item &lt; 70;
-      });
-
-    return &apos;You failed &apos; + failingGrades.length + &apos; times.&apos;;
-  };
-
-  // 将公有指针指向私有方法
-
-  return {
-    average: average,
-    failing: failing
-  }
-})();
-
-myGradesCalculate.failing(); // &apos;You failed 2 times.&apos; 
-myGradesCalculate.average(); // &apos;Your average grade is 70.33333333333333.&apos;
-</code></pre><p>到这里，其实我们只聊了模块模式的冰山一角。感兴趣的朋友可以阅读更详细的资料：</p>
-<ul>
-<li><a href="http://www.oschina.net/translate/javascript-module-pattern-in-depth" target="_blank" rel="external">深入理解JavaScript 模块模式</a></li>
-</ul>
-<h3 id="CommonJS-amp-AMD"><a href="#CommonJS-amp-AMD" class="headerlink" title="CommonJS &amp; AMD"></a>CommonJS &amp; AMD</h3><p>上述的所有解决方案都有一个共同点：使用单个全局变量来把所有的代码包含在一个函数内，由此来创建私有的命名空间和闭包作用域。</p>
-<p>虽然每种方法都比较有效，但也都有各自的短板。</p>
-<p>有一点，作为开发者，你必须清楚地了解引入依赖文件的正确顺序。就拿Backbone.js来举个例子，想要使用Backbone就必须在你的页面里引入Backbone的源文件。</p>
-<p>然而Backbone又依赖 Underscore.js，所以Backbone的引入必须在其之后。</p>
-<p>而在工作中，这些依赖管理经常会成为让人头疼的问题。</p>
-<p>另外一点，这些方法也有可能引起命名空间冲突。举个例子，要是你碰巧写了俩重名的模块怎么办？或者你同时需要一个模块的两个版本时该怎么办？</p>
-<p>难道就没有不通过全局作用域来实现的模块方法么？</p>
-<p>当然是有的。</p>
-<p>接下来介绍两种广受欢迎的解决方案：CommonJS 和 AMD.</p>
-<h3 id="CommonJS"><a href="#CommonJS" class="headerlink" title="CommonJS"></a>CommonJS</h3><p>CommonJS 扩展了JavaScript声明模块的API.</p>
-<p>CommonJS模块可以很方便得将某个对象导出，让他们能够被其他模块通过 require 语句来引入。要是你写过 Node.js 应该很熟悉这些语法。</p>
-<p>通过CommonJS，每个JS文件独立地存储它模块的内容（就像一个被括起来的闭包一样）。在这种作用域中，我们通过 module.exports 语句来导出对象为模块，再通过 require 语句来引入。</p>
-<p>还是举个直观的例子吧：</p>
-<pre><code>function myModule() {
-  this.hello = function() {
-    return &apos;hello!&apos;;
-  }
-
-  this.goodbye = function() {
-    return &apos;goodbye!&apos;;
-  }
-}
-
-module.exports = myModule;
-</code></pre><p>通过指定导出的对象名称，CommonJS模块系统可以识别在其他文件引入这个模块时应该如何解释。</p>
-<p>然后在某个人想要调用 myMoudle 的时候，只需要 require 一下：</p>
-<pre><code>var myModule = require(&apos;myModule&apos;);
-
-var myModuleInstance = new myModule();
-myModuleInstance.hello(); // &apos;hello!&apos;
-myModuleInstance.goodbye(); // &apos;goodbye!&apos;
-</code></pre><p>这种实现比起模块模式有两点好处：</p>
-<p>避免全局命名空间污染<br>明确代码之间的依赖关系<br>并且这种书写方式也非常舒服友好，我自己很喜欢。</p>
-<p>需要注意的一点是，CommonJS以服务器优先的方式来同步载入模块，假使我们引入三个模块的话，他们会一个个地被载入。</p>
-<p>它在服务器端用起来很爽，可是在浏览器里就不会那么高效了。毕竟读取网络的文件要比本地耗费更多时间。只要它还在读取模块，浏览器载入的页面就会一直卡着不动。（在下一篇第二部分的教程里我们会讨论如何解决这个问题） </p>
-<h3 id="AMD"><a href="#AMD" class="headerlink" title="AMD"></a>AMD</h3><p>CommonJS已经挺不错了，但假使我们想要实现异步加载模块该怎么办？答案就是Asynchronous Module Definition（异步模块定义规范），简称AMD.</p>
-<p>通过AMD载入模块的代码一般这么写：</p>
-<pre><code>define([&apos;myModule&apos;, &apos;myOtherModule&apos;], function(myModule, myOtherModule) {
-  console.log(myModule.hello());
-});
-</code></pre><p>这里我们使用 define 方法，第一个参数是依赖的模块，这些模块都会在后台无阻塞地加载，第二个参数则作为加载完毕的回调函数。</p>
-<p>回调函数将会使用载入的模块作为参数。在这个例子里就是 myMoudle 和 myOtherModule.最后，这些模块本身也需要通过 define 关键词来定义。</p>
-<p>拿 myModule 来举个例子：</p>
-<pre><code>define([], function() {
-
-  return {
-    hello: function() {
-      console.log(&apos;hello&apos;);
-    },
-    goodbye: function() {
-      console.log(&apos;goodbye&apos;);
-    }
-  };
-});
-</code></pre><p>重申一下，不像CommonJS，AMD是优先浏览器的一种异步载入模块的解决方案。（记得，很多人认为一个个地载入小文件是很低效的，我们将在下一篇文章理介绍如何打包模块）</p>
-<p>除了异步加载以外，AMD的另一个优点是你可以在模块里使用对象、函数、构造函数、字符串、JSON或者别的数据类型，而CommonJS只支持对象。</p>
-<p>再补充一点，AMD不支持Node里的一些诸如 IO,文件系统等其他服务器端的功能。另外语法上写起来也比CommonJS麻烦一些。</p>
-<h3 id="原生JS"><a href="#原生JS" class="headerlink" title="原生JS"></a>原生JS</h3><p>希望你坚持读到了现在，我们最后再介绍一种定义模块的方式。</p>
-<p>你可能注意到了，上述的这几种方法都不是JS原生支持的。要么是通过模块模式来模拟，要么是使用CommonJS或AMD.</p>
-<p>幸运的是在JS的最新规范ECMAScript 6 (ES6)中，引入了模块功能。</p>
-<p>ES6 的模块功能汲取了CommonJS 和 AMD 的优点，拥有简洁的语法并支持异步加载，并且还有其他诸多更好的支持。</p>
-<p>我最喜欢的ES6 模块功能的特性是，导入是实时只读的。（CommonJS 只是相当于把导出的代码复制过来）。</p>
-<p>来看例子：</p>
-<pre><code>// lib/counter.js
-
-var counter = 1;
-
-function increment() {
-  counter++;
-}
-
-function decrement() {
-  counter--;
-}
-
-module.exports = {
-  counter: counter,
-  increment: increment,
-  decrement: decrement
-};
-
-
-// src/main.js
-
-var counter = require(&apos;../../lib/counter&apos;);
-
-counter.increment();
-console.log(counter.counter); // 1
-</code></pre><p>上面这个例子中，我们一共创建了两份模块的实例，一个在导出的时候，一个在引入的时候。</p>
-<p>在 main.js 当中的实例是和原本模块完全不相干的。这也就解释了为什么调用了 counter.increment() 之后仍然返回1。因为我们引入的 counter 变量和模块里的是两个不同的实例。</p>
-<p>所以调用 counter.increment() 方法只会改变模块中的 counter .想要修改引入的 counter 只有手动一下啦：</p>
-<pre><code>counter.counter++;
-console.log(counter.counter); // 2
-</code></pre><p>而通过 import 语句，可以引入实时只读的模块：</p>
-<pre><code>// lib/counter.js
-export let counter = 1;
-
-export function increment() {
-  counter++;
-}
-
-export function decrement() {
-  counter--;
-}
-
-
-// src/main.js
-import * as counter from &apos;../../counter&apos;;
-
-console.log(counter.counter); // 1
-counter.increment();
-console.log(counter.counter); // 2
-</code></pre><p>这看起来很酷不是么？这样就实现了我们把模块分隔在不同的文件里，需要的时候又可以合并在一起而且不影响它的功能。</p>
-<p>期待下一篇：模块打包</p>
-<p>我想看到这里的你应该已经对JavaScript模块化有了进一步的了解。</p>
-<p>在下一篇教程里，我们会介绍：</p>
-<p>为什么要打包模块</p>
-<ul>
-<li>几种不同的打包构建方式</li>
-<li>ECMAScript 模块载入API</li>
-<li>其他</li>
-</ul>
-
+<p>后面的内容里我也会举一些具体的例子来说明这一点。<br>
+        <a class="article-more-a"  href="/2016/10/17/JavaScript-模块化入门Ⅰ/#more">more >></a>
       
 
       
@@ -973,11 +468,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">HEXO</a>
+                <a href="javascript:void(0)">JS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JS</a>
+                <a href="javascript:void(0)">HEXO</a>
               </li>
              
               <li class="article-tag-list-item">

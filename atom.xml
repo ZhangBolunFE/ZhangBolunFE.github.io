@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.zblweb.com/"/>
-  <updated>2016-12-08T18:34:39.140Z</updated>
+  <updated>2016-12-08T18:54:10.389Z</updated>
   <id>http://www.zblweb.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://www.zblweb.com/2016/12/01/Hexo%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%EF%BC%88%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0%EF%BC%89/"/>
     <id>http://www.zblweb.com/2016/12/01/Hexo主题优化（持续更新）/</id>
     <published>2016-12-01T13:40:01.000Z</published>
-    <updated>2016-12-08T18:34:39.140Z</updated>
+    <updated>2016-12-08T18:54:10.389Z</updated>
     
     <content type="html"><![CDATA[<h3 id="添加多说"><a href="#添加多说" class="headerlink" title="添加多说"></a>添加多说</h3><p>我的BLOG用的评论系统是多说，一开始按照官网设置总是有问题，经过长时间的尝试，终于解决了问题，写出来避免大家再次踩坑。</p>
 <p>因为我的主题是yilia，所以我这里按照yilia来，不过主题都大同小异，按照方法大概是都可以弄懂的。</p>
@@ -41,7 +41,9 @@
         })();
     &lt;/script&gt;
 &lt;!-- 多说公共JS代码 end --&gt;
-</code></pre><p><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;}</code> 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。<br>3.打开hexo/themes/yilia/layout/_partial/post/duoshuo.ejs，可以看到：</p>
+</code></pre><p><code>var duoshuoQuery = {short_name:&quot;bolunnn&quot;}</code> 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。</p>
+<a id="more"></a>
+<p>3.打开hexo/themes/yilia/layout/_partial/post/duoshuo.ejs，可以看到：</p>
 <pre><code>&lt;div class=&quot;duoshuo&quot;&gt;
    &lt;!-- 多说评论框 start --&gt;
    &lt;div class=&quot;ds-thread&quot; data-thread-key=&quot;&lt;%=key%&gt;&quot; data-title=&quot;&lt;%=title%&gt;&quot; data-url=&quot;&lt;%=url%&gt;&quot;&gt;&lt;/div&gt;
@@ -67,7 +69,26 @@
     
     <summary type="html">
     
-      &lt;h3 id=&quot;添加多说&quot;&gt;&lt;a href=&quot;#添加多说&quot; class=&quot;headerlink&quot; title=&quot;添加多说&quot;&gt;&lt;/a&gt;添加多说&lt;/h3&gt;&lt;p&gt;我的BLOG用的评论系统是多说，一开始按照官网设置总是有问题，经过长时间的尝试，终于解决了问题，写出来避免大家再次踩坑。&lt;/
+      &lt;h3 id=&quot;添加多说&quot;&gt;&lt;a href=&quot;#添加多说&quot; class=&quot;headerlink&quot; title=&quot;添加多说&quot;&gt;&lt;/a&gt;添加多说&lt;/h3&gt;&lt;p&gt;我的BLOG用的评论系统是多说，一开始按照官网设置总是有问题，经过长时间的尝试，终于解决了问题，写出来避免大家再次踩坑。&lt;/p&gt;
+&lt;p&gt;因为我的主题是yilia，所以我这里按照yilia来，不过主题都大同小异，按照方法大概是都可以弄懂的。&lt;/p&gt;
+&lt;p&gt;1.首先在&lt;a href=&quot;http://duoshuo.com/&quot;&gt;多说&lt;/a&gt; ,注册一个账号登录 , 添加新站点 bolunnn（这个是你多说的域名，我的域名是bolunnn.duoshuo.com，所以就是bolunnn）&lt;/p&gt;
+&lt;p&gt;2.然后点击左侧的 工具-&amp;gt;获取代码界面，可以看到通用代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;!-- 多说评论框 start --&amp;gt;
+    &amp;lt;div class=&amp;quot;ds-thread&amp;quot; data-thread-key=&amp;quot;请将此处替换成文章在你的站点中的ID&amp;quot; data-title=&amp;quot;请替换成文章的标题&amp;quot; data-url=&amp;quot;请替换成文章的网址&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+    &amp;lt;!-- 多说评论框 end --&amp;gt;
+    &amp;lt;!-- 多说公共JS代码 start (一个网页只需插入一次) --&amp;gt;
+    &amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt;
+        var duoshuoQuery = {short_name:&amp;quot;bolunnn&amp;quot;};
+        (function() {
+            var ds = document.createElement(&amp;apos;script&amp;apos;);
+            ds.type = &amp;apos;text/javascript&amp;apos;;ds.async = true;
+            ds.src = (document.location.protocol == &amp;apos;https:&amp;apos; ? &amp;apos;https:&amp;apos; : &amp;apos;http:&amp;apos;) + &amp;apos;//static.duoshuo.com/embed.js&amp;apos;;
+            ds.charset = &amp;apos;UTF-8&amp;apos;;
+            (document.getElementsByTagName(&amp;apos;head&amp;apos;)[0]|| document.getElementsByTagName(&amp;apos;body&amp;apos;)[0]).appendChild(ds);
+        })();
+    &amp;lt;/script&amp;gt;
+&amp;lt;!-- 多说公共JS代码 end --&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;var duoshuoQuery = {short_name:&amp;quot;bolunnn&amp;quot;}&lt;/code&gt; 中的bolunnn，就是我们要用到的duoshuo-key，也有人称之为duoshuo_shortname。&lt;/p&gt;
     
     </summary>
     
@@ -81,7 +102,7 @@
     <link href="http://www.zblweb.com/2016/10/18/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0%E2%85%A0/"/>
     <id>http://www.zblweb.com/2016/10/18/JavaScript-模块化入门ⅠⅠ/</id>
     <published>2016-10-18T13:40:01.000Z</published>
-    <updated>2016-11-20T15:41:42.105Z</updated>
+    <updated>2016-12-08T18:53:49.546Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d" target="_blank" rel="external">https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d</a> </p>
@@ -97,7 +118,8 @@
 <p>为了解决这个问题，我们就需要进行模块打包，把所有的模块合并到一个或几个文件中，以此来减少HTTP请求数。这也可以被称作是从开发到上线前的构建环节。</p>
 <p>还有一种提升加载速度的做法叫做代码压缩（混淆）。其实就是去除代码中不必要的空格、注释、换行符一类的字符，来保证在不影响代码正常工作的情况下压缩其体积。</p>
 <p>更小的文件体积也就意味着更短的加载时间。要是你仔细对比过带有 .min后缀的例如 jquery.min.js和jquery.js的话，应该会发现压缩版的文件相较之下要小很多。<br>Gulp和Grunt一类的构建工具可以很方便地解决上述的需求，在开发的时候通过模块来组织代码，上线时再合并压缩提供给浏览器。</p>
-<h3 id="打包模块的方法有哪些？"><a href="#打包模块的方法有哪些？" class="headerlink" title="打包模块的方法有哪些？"></a>打包模块的方法有哪些？</h3><p>如果你的代码是通过之前介绍过的模块模式来组织的，合并和压缩它们其实就只是把一些原生的JS代码合在一起而已。</p>
+<h3 id="打包模块的方法有哪些？"><a href="#打包模块的方法有哪些？" class="headerlink" title="打包模块的方法有哪些？"></a>打包模块的方法有哪些？</h3><a id="more"></a>
+<p>如果你的代码是通过之前介绍过的模块模式来组织的，合并和压缩它们其实就只是把一些原生的JS代码合在一起而已。</p>
 <p>但如果你使用的是一些浏览器原生不支持的模块系统（例如CommonJS 或 AMD，以及ES6 模块的支持现在也不完整），你就需要使用一些专门的构建工具来把它们转换成浏览器支持的代码。这类工具就是我们最近经常听说的Browserify, RequireJS, Webpack等等模块化构建、模块化加载工具了。</p>
 <p>为了实现模块化构建或载入的功能，这类工具提供许多诸如在你改动源代码后自动重新构建（文件监听）等一系列的功能。</p>
 <p>下面我们就一起来看一些实际的例子吧：</p>
@@ -276,7 +298,20 @@ filter([1, 2, 3], function(x) { return x === 2 });
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;原文链接:&lt;a href=&quot;https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d&quot; target=&quot;_bl
+&lt;p&gt;原文链接:&lt;a href=&quot;https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d&quot;&gt;https://medium.freecodecamp.com/javascript-modules-part-2-module-bundling-5020383cf306#.fvopcpf3d&lt;/a&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;声明：转载请注明出处。&lt;/strong&gt;&lt;br&gt;在上一篇教程里我们已经讨论过什么是模块，为什么要使用模块以及多种实现模块化的方式。&lt;/p&gt;
+&lt;p&gt;这次，我们会聊一聊什么是模块打包，为什么要打包模块，模块打包的方式工具，还有它当前在Web开发中的运用。&lt;/p&gt;
+&lt;h3 id=&quot;什么是模块打包？&quot;&gt;&lt;a href=&quot;#什么是模块打包？&quot; class=&quot;headerlink&quot; title=&quot;什么是模块打包？&quot;&gt;&lt;/a&gt;什么是模块打包？&lt;/h3&gt;&lt;p&gt;粗俗一点来讲，模块打包就是把一小坨一小坨的代码粘成一大坨。&lt;/p&gt;
+&lt;p&gt;实际操作起来的时候当然还需要关注一些细节。&lt;/p&gt;
+&lt;h3 id=&quot;为什么要打包模块？&quot;&gt;&lt;a href=&quot;#为什么要打包模块？&quot; class=&quot;headerlink&quot; title=&quot;为什么要打包模块？&quot;&gt;&lt;/a&gt;为什么要打包模块？&lt;/h3&gt;&lt;p&gt;一般来讲，我们用模块化组织代码的时候，都会把模块划分在不同的文件和文件夹里，也可能会包含一些诸如React和Underscore一类的第三方库。&lt;/p&gt;
+&lt;p&gt;而后，所有的这些模块都需要通过 script标签引入到你的HTML文件中，然后用户在访问你网页的时候它才能正常显示和工作。&lt;/p&gt;
+&lt;p&gt;每个独立的script标签都意味着，它们要被浏览器分别一个个地加载。&lt;/p&gt;
+&lt;p&gt;这就有可能导致页面载入时间过长。&lt;/p&gt;
+&lt;p&gt;为了解决这个问题，我们就需要进行模块打包，把所有的模块合并到一个或几个文件中，以此来减少HTTP请求数。这也可以被称作是从开发到上线前的构建环节。&lt;/p&gt;
+&lt;p&gt;还有一种提升加载速度的做法叫做代码压缩（混淆）。其实就是去除代码中不必要的空格、注释、换行符一类的字符，来保证在不影响代码正常工作的情况下压缩其体积。&lt;/p&gt;
+&lt;p&gt;更小的文件体积也就意味着更短的加载时间。要是你仔细对比过带有 .min后缀的例如 jquery.min.js和jquery.js的话，应该会发现压缩版的文件相较之下要小很多。&lt;br&gt;Gulp和Grunt一类的构建工具可以很方便地解决上述的需求，在开发的时候通过模块来组织代码，上线时再合并压缩提供给浏览器。&lt;/p&gt;
+&lt;h3 id=&quot;打包模块的方法有哪些？&quot;&gt;&lt;a href=&quot;#打包模块的方法有哪些？&quot; class=&quot;headerlink&quot; title=&quot;打包模块的方法有哪些？&quot;&gt;&lt;/a&gt;打包模块的方法有哪些？&lt;/h3&gt;
     
     </summary>
     
@@ -290,7 +325,7 @@ filter([1, 2, 3], function(x) { return x === 2 });
     <link href="http://www.zblweb.com/2016/10/17/JavaScript-%E6%A8%A1%E5%9D%97%E5%8C%96%E5%85%A5%E9%97%A8%E2%85%A0/"/>
     <id>http://www.zblweb.com/2016/10/17/JavaScript-模块化入门Ⅰ/</id>
     <published>2016-10-17T13:40:01.000Z</published>
-    <updated>2016-11-20T11:29:14.542Z</updated>
+    <updated>2016-12-08T18:53:39.158Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>原文链接:<a href="https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq" target="_blank" rel="external">https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq</a> </p>
@@ -309,7 +344,7 @@ filter([1, 2, 3], function(x) { return x === 2 });
 <p><strong>1.可维护性：</strong>根据定义，每个模块都是独立的。良好设计的模块会尽量与外部的代码撇清关系，<br>以便于独立对其进行改进和维护。维护一个独立的模块比起一团凌乱的代码来说要轻松很多。</p>
 <p><strong>2.命名空间：</strong>在JavaScript中，最高级别的函数外定义的变量都是全局变量（这意味着所有人都可以访问到它们）。<br>也正因如此，当一些无关的代码碰巧使用到同名变量的时候，我们就会遇到“命名空间污染”的问题。</p>
 <p>这样的问题在我们开发过程中是要极力避免的。</p>
-<p>后面的内容里我也会举一些具体的例子来说明这一点。</p>
+<p>后面的内容里我也会举一些具体的例子来说明这一点。<br><a id="more"></a></p>
 <p><strong>3.可复用性：</strong>现实来讲，在日常工作中我们经常会复制自己之前写过的代码到新项目中。</p>
 <p>复制粘贴虽然很快很方便，但难道我们找不到更好的办法了么？要是……有一个可以重复利用的模块岂不妙哉？</p>
 <h3 id="如何引入模块"><a href="#如何引入模块" class="headerlink" title="如何引入模块"></a>如何引入模块</h3><p>引入模块有很多种方式，这里我们先介绍一些：</p>
@@ -626,7 +661,23 @@ console.log(counter.counter); // 2
     <summary type="html">
     
       &lt;blockquote&gt;
-&lt;p&gt;原文链接:&lt;a href=&quot;https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq&quot; target=&quot;_blank&quot;
+&lt;p&gt;原文链接:&lt;a href=&quot;https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq&quot;&gt;https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.lv2ey5klq&lt;/a&gt; &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;声明：转载请注明出处。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;作为一名JS初学者。假如你听到了一些诸如“模块化构建&amp;amp;模块化载入” “Webpack&amp;amp;Browserify” 或者 “AMD&amp;amp;CMD”之类的术语，肯定瞬间就凌乱了。&lt;/p&gt;
+&lt;p&gt;JavaScript的模块化听起来挺深奥，可其实理解它对开发者来说特别实用。&lt;/p&gt;
+&lt;p&gt;在这篇文章里，我会尽量深入浅出地把这些深奥的术语翻译成浅显易懂的人话（加上一些代码示例）。希望你多少能从中学到点东西。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;为了避免长篇大论，整个内容会分为两篇文章，这是第一部分，主要介绍模块化是什么，为什么要使用模块。之后的第二部分会介绍如何打包JS模块，以及各类构建工具。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;求解释到底什么是模块化&quot;&gt;&lt;a href=&quot;#求解释到底什么是模块化&quot; class=&quot;headerlink&quot; title=&quot;求解释到底什么是模块化&quot;&gt;&lt;/a&gt;求解释到底什么是模块化&lt;/h3&gt;&lt;p&gt;称职的作家会把他的书分章节和段落；好的程序员会把他的代码分成模块。&lt;/p&gt;
+&lt;p&gt;就好像书籍的一章，模块仅仅是一坨代码而已。&lt;/p&gt;
+&lt;p&gt;好的代码模块分割的内容一定是很合理的，便于你增加减少或者修改功能，同时又不会影响整个系统。&lt;/p&gt;
+&lt;h3 id=&quot;为什么要使用模块&quot;&gt;&lt;a href=&quot;#为什么要使用模块&quot; class=&quot;headerlink&quot; title=&quot;为什么要使用模块&quot;&gt;&lt;/a&gt;为什么要使用模块&lt;/h3&gt;&lt;p&gt;模块化可以使你的代码低耦合，功能模块直接不相互影响。我个人认为模块化主要有以下几点好处：&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.可维护性：&lt;/strong&gt;根据定义，每个模块都是独立的。良好设计的模块会尽量与外部的代码撇清关系，&lt;br&gt;以便于独立对其进行改进和维护。维护一个独立的模块比起一团凌乱的代码来说要轻松很多。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2.命名空间：&lt;/strong&gt;在JavaScript中，最高级别的函数外定义的变量都是全局变量（这意味着所有人都可以访问到它们）。&lt;br&gt;也正因如此，当一些无关的代码碰巧使用到同名变量的时候，我们就会遇到“命名空间污染”的问题。&lt;/p&gt;
+&lt;p&gt;这样的问题在我们开发过程中是要极力避免的。&lt;/p&gt;
+&lt;p&gt;后面的内容里我也会举一些具体的例子来说明这一点。&lt;br&gt;
     
     </summary>
     
